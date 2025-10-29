@@ -557,6 +557,7 @@ int main() {
         std::cout << "MSIZE\n";
         std::cout << "TINSERT value(int)\n";
         std::cout << "TREMOVE value(int)\n";
+        std::cout << "THEIGHT\n";
         std::cout << "(D/F)ADDAFTER search_value(string) value(string)\n";
         std::cout << "(D/F)ADDBEFORE search_value(string) value(string)\n";
         std::cout << "(D/F)PUSHFORWARD value(string)\n";
@@ -585,3 +586,4 @@ endProgramm:
 
     return 0;
 }
+
