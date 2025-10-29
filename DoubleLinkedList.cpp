@@ -82,14 +82,14 @@ void DeleteNode2Before(DoubleLinkedList* dList, Node2* ptr) {
 void DLPopBack(DoubleLinkedList* dList) {
     Node2* deleteNode = dList->tail;
     dList->tail = deleteNode->previous;
-    deleteNode->next = nullptr;
+    dList->tail->next = nullptr;
     delete deleteNode;
 }
 
 void DLPopForward(DoubleLinkedList* dList) {
     Node2* deleteNode = dList->head;
     dList->head = deleteNode->next;
-    deleteNode->previous = nullptr;
+    dList->head->previous = nullptr;
     delete deleteNode;
 }
 
@@ -197,4 +197,5 @@ Node2* GetNode2(DoubleLinkedList dList, std::string key) {
         nowNode = nowNode->next;
     }
     return nullptr;
+
 }
