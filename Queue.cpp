@@ -7,14 +7,23 @@ void createQueue(Queue* queue, std::string value) {
 
 void QueuePush(Queue* queue, std::string value) {
 	QueueElement* newElement = new QueueElement{ value, nullptr };
-	queue->tail->next = newElement;
-	queue->tail = newElement;
+	if (queue->tail == nullptr) {
+		queue->top = newElement;
+		queue->tail = queue->top;
+	}
+	else {
+		queue->tail->next = newElement;
+		queue->tail = newElement;
+	}
 }
 
 QueueElement* QueuePop(Queue* queue) {
-	// âûâîäèòü ýëåìåíò
+	// Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚
 	QueueElement* deleteElement = queue->top;
 	queue->top = deleteElement->next;
+	if (queue->top == nullptr) {
+		queue->tail = nullptr;
+	}
 	QueueElement* result = new QueueElement{deleteElement->value, nullptr};
 	delete deleteElement;
 	return result;
@@ -60,4 +69,5 @@ Queue* importQueue(std::string path) {
 	}
 	in.close();
 	return result;
+
 }
